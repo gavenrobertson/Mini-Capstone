@@ -3,18 +3,18 @@
 ## 🚀 Getting Started
 
 
-# Clone the repo
+### Clone the repo
 git clone https://github.com/yourusername/my_game_project.git
 cd my_game_project
 
-# Create a virtual environment (optional but recommended)
+### Create a virtual environment (optional but recommended)
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-# Install dependencies
+### Install dependencies
 pip install -r requirements.txt
 
-# Run the game
+### Run the game
 python src/main.py
 
 ---
@@ -75,8 +75,3 @@ Contains the core game logic and code:
 
 - **`data/`** – For saving player data, high scores, etc.
 - **`tests/`** – For unit tests (if using `pytest` or similar).
-
-
-data/ – If you’re saving player data, high scores, etc.
-
-tests/ – If you’re writing unit tests.
