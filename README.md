@@ -2,7 +2,7 @@
 
 ## 🚀 Getting Started
 
-```bash
+
 # Clone the repo
 git clone https://github.com/yourusername/my_game_project.git
 cd my_game_project
