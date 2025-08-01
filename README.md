@@ -20,7 +20,7 @@ python src/main.py
 ---
 
 ## 📁 Project Structure
-
+```
 my_game_project/
 ├── assets/
 │ ├── images/
@@ -38,7 +38,7 @@ my_game_project/
 │ └── utils.py # Helper functions
 ├── README.md
 └── requirements.txt
-
+```
 ---
 
 ## 📂 Folders Overview
