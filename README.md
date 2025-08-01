@@ -4,7 +4,7 @@
 
 
 ### Clone the repo
-git clone https://github.com/yourusername/my_game_project.git
+git clone (https://github.com/gavenrobertson/Mini-Capstone.git)
 cd my_game_project
 
 ### Create a virtual environment (optional but recommended)
