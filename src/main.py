@@ -1,5 +1,6 @@
-from gui import create_window
 import PySimpleGUI as sg
+from gui import create_window
+
 
 def main():
     window = create_window()
