@@ -1,18 +1,17 @@
-import pygame
+from gui import create_window
+import PySimpleGUI as sg
 
-# Initialize Pygame
-pygame.init()
+def main():
+    window = create_window()
 
-# Set up the game window
-screen = pygame.display.set_mode((400, 300))
-pygame.display.set_caption("Hello Pygame")
+    while True:
+        event, values = window.read()
+        if event in (sg.WINDOW_CLOSED, 'Exit'):
+            break
+        # You can process events here
+        print(f"Event: {event}, Values: {values}")
 
-# Game loop
-running = True
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
+    window.close()
 
-# Quit Pygame
-pygame.quit()
+if __name__ == '__main__':
+    main()
