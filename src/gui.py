@@ -18,7 +18,7 @@ def student_window():
     layout = [
         [sg.Text('Welcome, please enter the below information!')],
         [sg.Text('Last Name, First Name: '), sg.Input(key='-LASTFIRST-', size=(20, 1)), sg.Text('Phone #: '), sg.Input(key='-PHONE-', size=(20, 1)), sg.Text('Room #: '), sg.Input(key='-ROOM-', size=(20, 1))],
-        [sg.Texballzt('Mode of Transportation:')],
+        [sg.Text('Mode of Transportation:')],
         [sg.Radio('Pov', 'TRANSPORTATION', key='-POV-'), sg.Radio('Airplane', 'TRANSPORTATION', key='-AIRPLANE-'), sg.Radio('Bus', 'TRANSPORTATION', key='-BUS-'), sg.Radio('Train', 'TRANSPORTATION', key='-TRAIN-'), sg.Radio('Other', 'TRANSPORTATION', key='-OTHER-')],
         [sg.Text('Departure Date: '), sg.Input(key='-DEPARTURE_DATE-', size=(10, 1))],
         [sg.Text('Arrival point: '), sg.Input(key='-ARRIVAL_ONE-', size=(20, 1))],
