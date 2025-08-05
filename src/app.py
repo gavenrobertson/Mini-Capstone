@@ -244,49 +244,47 @@ class Instructor(Mil):
 
 
 class FortyThree92:
-    '''
-    Represents a 4392 request form, which may be used for leave, duty exceptions, etc.
+    """
+    Represents a 4392 request form used for leave.
 
     Attributes:
-        _dod_id (str): DoD ID of the requester.
-        _name (str): Full name of the requester.
-        _email (str): Email of the requester.
-        rank (str): Rank of the requester.
+        name (str): Last name, First name of the student.
         phonenumber (str): Contact phone number.
-        room (str): Room number.
-        transportation (str): Type of transportation used.
-        departure_date (str): Date of departure.
-        arrival_one (str): First arrival date and time.
-        lor_one (str): First LOR identifier.
-        mileage_one (int): Mileage for the first trip.
+        room (str): Dorm or room number.
+        transportation (str): Mode of transportation.
+        departure_date (str): Departure date from location.
+        arrival_one (str): First arrival point.
+        lor_one (str): First LOR (Length of Rest).
+        mileage_one (str): Mileage for the first trip.
         date_two (str): Second date (e.g., return date).
-        lor_two (str): Second LOR identifier.
-        other_name (str): Name of other person associated.
-        address (str): Address of destination.
-        other_number (str): Phone number of the other person.
-        confirmation_number (str): Confirmation number for lodging.
-        lodging_type (str): Type of lodging.
-        visitor1_name (str): Name of the first visitor.
-        visitor1_number (str): Phone number of the first visitor.
-        visitor1_relationship (str): Relationship of visitor 1.
-        visitor2_name (str): Name of the second visitor.
-        visitor2_number (str): Phone number of the second visitor.
-        visitor2_relationship (str): Relationship of visitor 2.
-        status (str): Current status of the form.
-    '''
+        lor_two (str): Second LOR.
+        other_name (str): Name associated with lodging.
+        address (str): Lodging address.
+        other_number (str): Phone number for lodging contact.
+        confirmation_number (str): Lodging confirmation number.
+        lodging_type (str): Type of lodging (e.g., hotel, residence).
+        visitor1_name (str): Name of first approved visitor.
+        visitor1_number (str): Phone number of first visitor.
+        visitor1_relationship (str): Relationship of first visitor.
+        visitor2_name (str): Name of second approved visitor.
+        visitor2_number (str): Phone number of second visitor.
+        visitor2_relationship (str): Relationship of second visitor.
+        student_signature (str): Student's digital or typed signature.
+        grade (str): Student's grade (E1–E4).
+        date_briefed (str): Date student was briefed.
+        briefed_by (str): Name of the person who briefed the student.
+        status (str): Status of the form (default is "Pending").
+    """
     def __init__(
-        self, dod_id: str, name: str, rank: str, email: str, phonenumber: str,
-        room: str, transportation: str, departure_date: str, arrival_one: str,
-        lor_one: str, mileage_one: int, date_two: str, lor_two: str,
-        other_name: str, address: str, other_number: str,
-        confirmation_number: str, lodging_type: str,
-        visitor1_name: str, visitor1_number: str, visitor1_relationship: str,
-        visitor2_name: str, visitor2_number: str, visitor2_relationship: str
+        self, name, phonenumber, room, transportation,
+        departure_date, arrival_one, lor_one, mileage_one,
+        date_two, lor_two, other_name, address, other_number,
+        confirmation_number, lodging_type,
+        visitor1_name, visitor1_number, visitor1_relationship,
+        visitor2_name, visitor2_number, visitor2_relationship,
+        student_signature, grade, date_briefed, briefed_by
     ):
-        self._dod_id = dod_id
-        self._name = name
-        self._email = email
-        self.rank = rank
+        self.name = name
         self.phonenumber = phonenumber
         self.room = room
         self.transportation = transportation
@@ -307,6 +305,10 @@ class FortyThree92:
         self.visitor2_name = visitor2_name
         self.visitor2_number = visitor2_number
         self.visitor2_relationship = visitor2_relationship
+        self.student_signature = student_signature
+        self.grade = grade
+        self.date_briefed = date_briefed
+        self.briefed_by = briefed_by
         self.status = "Pending"
 
     @property

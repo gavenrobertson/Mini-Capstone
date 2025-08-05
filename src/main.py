@@ -37,11 +37,10 @@ def main():
                     break
 
                 elif event == 'Submit':
-                    last_first = stu_values['-LASTFIRST-']
-                    phone = stu_values['-PHONE-']
+                    name = stu_values['-LASTFIRST-']
+                    phonenumber = stu_values['-PHONE-']
                     room = stu_values['-ROOM-']
 
-                    
                     if stu_values['-POV-']:
                         transportation = 'POV'
                     elif stu_values['-AIRPLANE-']:
@@ -66,7 +65,6 @@ def main():
                     other_number = stu_values['-OTHER_NUMBER-']
                     confirmation_number = stu_values['-CONFIRMATION_NUMBER-']
 
-                
                     if stu_values['-HOTEL_RENTAL-']:
                         lodging_type = 'Hotel/Rental'
                     elif stu_values['-RESIDENCE-']:
@@ -76,31 +74,39 @@ def main():
                     else:
                         lodging_type = None
 
-                    visit_name_one = stu_values['-VISIT_NAME_ONE-']
-                    visit_number_one = stu_values['-VISIT_NUMBER_ONE-']
-                    visit_relationship_one = stu_values['-VISIT_RELATIONSHIP_ONE-']
-                    visit_name_two = stu_values['-VISIT_NAME_TWO-']
-                    visit_number_two = stu_values['-VISIT_NUMBER_TWO-']
-                    visit_relationship_two = stu_values['-VISIT_RELATIONSHIP_TWO-']
-                    
-                    
-                    dod_id = "123456789"
-                    rank = "SSgt"
-                    email = "someone@example.com"
+                    visitor1_name = stu_values['-VISIT_NAME_ONE-']
+                    visitor1_number = stu_values['-VISIT_NUMBER_ONE-']
+                    visitor1_relationship = stu_values['-VISIT_RELATIONSHIP_ONE-']
+                    visitor2_name = stu_values['-VISIT_NAME_TWO-']
+                    visitor2_number = stu_values['-VISIT_NUMBER_TWO-']
+                    visitor2_relationship = stu_values['-VISIT_RELATIONSHIP_TWO-']
 
-                    # Convert mileage to integer
+                    student_signature = stu_values['-STUDENT_SIGNATURE-']
+
+                    if stu_values['-E1-']:
+                        grade = 'E1'
+                    elif stu_values['-E2-']:
+                        grade = 'E2'
+                    elif stu_values['-E3-']:
+                        grade = 'E3'
+                    elif stu_values['-E4-']:
+                        grade = 'E4'
+                    else:
+                        grade = None
+
+                    date_briefed = stu_values['-DATE_BRIEFED-']
+                    briefed_by = stu_values['-BRIEFED_BY-']
+
+                    
                     try:
                         mileage_one_int = int(mileage_one)
                     except ValueError:
-                        mileage_one_int = 0  #validate and if error assign to zero.
+                        mileage_one_int = 0
 
-                    # Create the object
+                    # Create 4392 object
                     form_4392 = FortyThree92(
-                        dod_id=dod_id,
-                        name=last_first,
-                        rank=rank,
-                        email=email,
-                        phonenumber=phone,
+                        name=name,
+                        phonenumber=phonenumber,
                         room=room,
                         transportation=transportation,
                         departure_date=departure_date,
@@ -114,12 +120,16 @@ def main():
                         other_number=other_number,
                         confirmation_number=confirmation_number,
                         lodging_type=lodging_type,
-                        visitor1_name=visit_name_one,
-                        visitor1_number=visit_number_one,
-                        visitor1_relationship=visit_relationship_one,
-                        visitor2_name=visit_name_two,
-                        visitor2_number=visit_number_two,
-                        visitor2_relationship=visit_relationship_two
+                        visitor1_name=visitor1_name,
+                        visitor1_number=visitor1_number,
+                        visitor1_relationship=visitor1_relationship,
+                        visitor2_name=visitor2_name,
+                        visitor2_number=visitor2_number,
+                        visitor2_relationship=visitor2_relationship,
+                        student_signature=student_signature,
+                        grade=grade,
+                        date_briefed=date_briefed,
+                        briefed_by=briefed_by
                     )
                     
                     file_path = "form_4392_full.csv"
@@ -127,13 +137,36 @@ def main():
                     
                     with open(file_path, "a", newline="") as file:
                         writer = csv.writer(file)
-                        
-                        # Write data
                         writer.writerow([
-                            form_4392.dod_id,
+                            "Name",
+                            "Phone Number",
+                            "Room",
+                            "Transportation",
+                            "Departure Date",
+                            "Arrival One",
+                            "LOR One",
+                            "Mileage One",
+                            "Date Two",
+                            "LOR Two",
+                            "Other Name",
+                            "Address",
+                            "Other Number",
+                            "Confirmation Number",
+                            "Lodging Type",
+                            "Visitor 1 Name",
+                            "Visitor 1 Number",
+                            "Visitor 1 Relationship",
+                            "Visitor 2 Name",
+                            "Visitor 2 Number",
+                            "Visitor 2 Relationship",
+                            "Student Signature",
+                            "Grade",
+                            "Date Briefed",
+                            "Briefed By",
+                            "Status"
+                        ])
+                        writer.writerow([
                             form_4392.name,
-                            form_4392.rank,
-                            form_4392.email,
                             form_4392.phonenumber,
                             form_4392.room,
                             form_4392.transportation,
@@ -154,6 +187,10 @@ def main():
                             form_4392.visitor2_name,
                             form_4392.visitor2_number,
                             form_4392.visitor2_relationship,
+                            form_4392.student_signature,
+                            form_4392.grade,
+                            form_4392.date_briefed,
+                            form_4392.briefed_by,
                             form_4392.status
                         ])
 
