@@ -1,7 +1,7 @@
 import PySimpleGUI as sg
 import csv
 from gui import intro_window, student_window
-from app import Mil, Mtl, Student, Instructor, FortyThree92
+from app import Mtl, Student, Instructor, FortyThree92
 
 def main():
     intro_view = intro_window()
@@ -37,13 +37,11 @@ def main():
                     break
 
                 elif event == 'Submit':
-                    more = stu_values['-MORE-']
-                    plus = stu_values['-PLUS-']
                     last_first = stu_values['-LASTFIRST-']
                     phone = stu_values['-PHONE-']
                     room = stu_values['-ROOM-']
 
-                    # Transportation radio buttons
+                    
                     if stu_values['-POV-']:
                         transportation = 'POV'
                     elif stu_values['-AIRPLANE-']:
@@ -68,7 +66,7 @@ def main():
                     other_number = stu_values['-OTHER_NUMBER-']
                     confirmation_number = stu_values['-CONFIRMATION_NUMBER-']
 
-                    # Lodging type radio buttons
+                
                     if stu_values['-HOTEL_RENTAL-']:
                         lodging_type = 'Hotel/Rental'
                     elif stu_values['-RESIDENCE-']:
@@ -86,6 +84,79 @@ def main():
                     visit_relationship_two = stu_values['-VISIT_RELATIONSHIP_TWO-']
                     
                     
+                    dod_id = "123456789"
+                    rank = "SSgt"
+                    email = "someone@example.com"
+
+                    # Convert mileage to integer
+                    try:
+                        mileage_one_int = int(mileage_one)
+                    except ValueError:
+                        mileage_one_int = 0  #validate and if error assign to zero.
+
+                    # Create the object
+                    form_4392 = FortyThree92(
+                        dod_id=dod_id,
+                        name=last_first,
+                        rank=rank,
+                        email=email,
+                        phonenumber=phone,
+                        room=room,
+                        transportation=transportation,
+                        departure_date=departure_date,
+                        arrival_one=arrival_one,
+                        lor_one=lor_one,
+                        mileage_one=mileage_one_int,
+                        date_two=date_two,
+                        lor_two=lor_two,
+                        other_name=other_name,
+                        address=address,
+                        other_number=other_number,
+                        confirmation_number=confirmation_number,
+                        lodging_type=lodging_type,
+                        visitor1_name=visit_name_one,
+                        visitor1_number=visit_number_one,
+                        visitor1_relationship=visit_relationship_one,
+                        visitor2_name=visit_name_two,
+                        visitor2_number=visit_number_two,
+                        visitor2_relationship=visit_relationship_two
+                    )
+                    
+                    file_path = "form_4392_full.csv"
+
+                    
+                    with open(file_path, "a", newline="") as file:
+                        writer = csv.writer(file)
+                        
+                        # Write data
+                        writer.writerow([
+                            form_4392.dod_id,
+                            form_4392.name,
+                            form_4392.rank,
+                            form_4392.email,
+                            form_4392.phonenumber,
+                            form_4392.room,
+                            form_4392.transportation,
+                            form_4392.departure_date,
+                            form_4392.arrival_one,
+                            form_4392.lor_one,
+                            form_4392.mileage_one,
+                            form_4392.date_two,
+                            form_4392.lor_two,
+                            form_4392.other_name,
+                            form_4392.address,
+                            form_4392.other_number,
+                            form_4392.confirmation_number,
+                            form_4392.lodging_type,
+                            form_4392.visitor1_name,
+                            form_4392.visitor1_number,
+                            form_4392.visitor1_relationship,
+                            form_4392.visitor2_name,
+                            form_4392.visitor2_number,
+                            form_4392.visitor2_relationship,
+                            form_4392.status
+                        ])
+
                     student_view.close()
                     break
             break

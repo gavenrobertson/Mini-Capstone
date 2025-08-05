@@ -249,31 +249,64 @@ class FortyThree92:
 
     Attributes:
         _dod_id (str): DoD ID of the requester.
-        _name (str): Name of the requester.
+        _name (str): Full name of the requester.
         _email (str): Email of the requester.
         rank (str): Rank of the requester.
         phonenumber (str): Contact phone number.
-        squad (str): Squad assignment.
+        room (str): Room number.
+        transportation (str): Type of transportation used.
+        departure_date (str): Date of departure.
+        arrival_one (str): First arrival date and time.
+        lor_one (str): First LOR identifier.
+        mileage_one (int): Mileage for the first trip.
+        date_two (str): Second date (e.g., return date).
+        lor_two (str): Second LOR identifier.
+        other_name (str): Name of other person associated.
+        address (str): Address of destination.
+        other_number (str): Phone number of the other person.
+        confirmation_number (str): Confirmation number for lodging.
+        lodging_type (str): Type of lodging.
+        visitor1_name (str): Name of the first visitor.
+        visitor1_number (str): Phone number of the first visitor.
+        visitor1_relationship (str): Relationship of visitor 1.
+        visitor2_name (str): Name of the second visitor.
+        visitor2_number (str): Phone number of the second visitor.
+        visitor2_relationship (str): Relationship of visitor 2.
         status (str): Current status of the form.
     '''
-    def __init__(self, dod_id: str, name: str, rank: str, email: str, phonenumber: str, squad: str):
-        '''
-        Initializes a FortyThree92 request form.
-
-        Args:
-            dod_id (str): DoD ID.
-            name (str): Requester's name.
-            rank (str): Requester's rank.
-            email (str): Requester's email.
-            phonenumber (str): Requester's phone number.
-            squad (str): Requester's squad.
-        '''
+    def __init__(
+        self, dod_id: str, name: str, rank: str, email: str, phonenumber: str,
+        room: str, transportation: str, departure_date: str, arrival_one: str,
+        lor_one: str, mileage_one: int, date_two: str, lor_two: str,
+        other_name: str, address: str, other_number: str,
+        confirmation_number: str, lodging_type: str,
+        visitor1_name: str, visitor1_number: str, visitor1_relationship: str,
+        visitor2_name: str, visitor2_number: str, visitor2_relationship: str
+    ):
         self._dod_id = dod_id
         self._name = name
-        self.rank = rank
         self._email = email
+        self.rank = rank
         self.phonenumber = phonenumber
-        self.squad = squad
+        self.room = room
+        self.transportation = transportation
+        self.departure_date = departure_date
+        self.arrival_one = arrival_one
+        self.lor_one = lor_one
+        self.mileage_one = mileage_one
+        self.date_two = date_two
+        self.lor_two = lor_two
+        self.other_name = other_name
+        self.address = address
+        self.other_number = other_number
+        self.confirmation_number = confirmation_number
+        self.lodging_type = lodging_type
+        self.visitor1_name = visitor1_name
+        self.visitor1_number = visitor1_number
+        self.visitor1_relationship = visitor1_relationship
+        self.visitor2_name = visitor2_name
+        self.visitor2_number = visitor2_number
+        self.visitor2_relationship = visitor2_relationship
         self.status = "Pending"
 
     @property
