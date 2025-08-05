@@ -3,6 +3,8 @@ import csv
 from gui import intro_window, student_window
 from app import Mtl, Student, Instructor, FortyThree92
 
+sg.theme('DarkRed1')
+
 def main():
     intro_view = intro_window()
 
