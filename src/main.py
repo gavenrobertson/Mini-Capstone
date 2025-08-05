@@ -1,18 +1,24 @@
 import PySimpleGUI as sg
-from gui import create_window
+from gui import intro_window, student_window
 
 
 def main():
-    window = create_window()
+    intro_view = intro_window()
+    student_view = student_window()
 
     while True:
-        event, values = window.read()
+        event, values = intro_view.read()
         if event in (sg.WINDOW_CLOSED, 'Exit'):
             break
-        # You can process events here
-        print(f"Event: {event}, Values: {values}")
-
-    window.close()
+        elif event in (sg.WINDOW_CLOSED, 'Submit'):
+            while True:
+                event, values = student_view.read()
+                if event in (sg.WINDOW_CLOSED, 'Exit'):
+                    break
+                elif event in (sg.WINDOW_CLOSED, 'Submit'):
+                    student_view.close()
+                    intro_view.close()
+            intro_view.close()
 
 if __name__ == '__main__':
     main()
