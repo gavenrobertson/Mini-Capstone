@@ -10,7 +10,7 @@ def main():
         event, values = intro_view.read()
         if event in (sg.WINDOW_CLOSED, 'Exit'):
             break
-        elif event in (sg.WINDOW_CLOSED, 'Submit'):
+        elif event in (sg.WINDOW_CLOSED, 'Next'):
             while True:
                 event, values = student_view.read()
                 if event in (sg.WINDOW_CLOSED, 'Exit'):
