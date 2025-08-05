@@ -6,6 +6,7 @@ def intro_window():
         [sg.Text('Name: '), sg.Input(key='-NAME-')],
         [sg.Text('Email: '), sg.Input(key='-EMAIL-')],
         [sg.Text('Rank: '), sg.Input(key='-RANK-')],
+        [sg.Text('DoD ID: '), sg.Input(key='-DOD_ID-')],
         [sg.Button('Next'), sg.Button('Exit')]
     ]
     return sg.Window('My PySimpleGUI App', layout)
