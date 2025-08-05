@@ -1,6 +1,7 @@
 import PySimpleGUI as sg
 
 def intro_window():
+    #User input for intro window, creates data for Student object
     layout = [
         [sg.Text('Welcome, please enter the below information!')],
         [sg.Text('Name: '), sg.Input(key='-NAME-', size=(20, 10))],
@@ -13,10 +14,11 @@ def intro_window():
     return sg.Window('My PySimpleGUI App', layout)
 
 def student_window():
+    #User input for 4392 form, creates data for 4392 object
     layout = [
         [sg.Text('Welcome, please enter the below information!')],
         [sg.Text('Last Name, First Name: '), sg.Input(key='-LASTFIRST-', size=(20, 1)), sg.Text('Phone #: '), sg.Input(key='-PHONE-', size=(20, 1)), sg.Text('Room #: '), sg.Input(key='-ROOM-', size=(20, 1))],
-        [sg.Text('Mode of Transportation:')],
+        [sg.Texballzt('Mode of Transportation:')],
         [sg.Radio('Pov', 'TRANSPORTATION', key='-POV-'), sg.Radio('Airplane', 'TRANSPORTATION', key='-AIRPLANE-'), sg.Radio('Bus', 'TRANSPORTATION', key='-BUS-'), sg.Radio('Train', 'TRANSPORTATION', key='-TRAIN-'), sg.Radio('Other', 'TRANSPORTATION', key='-OTHER-')],
         [sg.Text('Departure Date: '), sg.Input(key='-DEPARTURE_DATE-', size=(10, 1))],
         [sg.Text('Arrival point: '), sg.Input(key='-ARRIVAL_ONE-', size=(20, 1))],
