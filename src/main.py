@@ -11,14 +11,13 @@ def main():
         if event in (sg.WINDOW_CLOSED, 'Exit'):
             break
         elif event in (sg.WINDOW_CLOSED, 'Next'):
+            intro_view.close()
             while True:
                 event, values = student_view.read()
                 if event in (sg.WINDOW_CLOSED, 'Exit'):
                     break
                 elif event in (sg.WINDOW_CLOSED, 'Submit'):
                     student_view.close()
-                    intro_view.close()
-            intro_view.close()
 
 if __name__ == '__main__':
     main()
