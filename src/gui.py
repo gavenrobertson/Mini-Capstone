@@ -5,6 +5,7 @@ def intro_window():
         [sg.Text('Welcome, please enter the below information!')],
         [sg.Text('Name: '), sg.Input(key='-NAME-')],
         [sg.Text('Email: '), sg.Input(key='-EMAIL-')],
+        [sg.Text('Phone #: '), sg.Input(key='-INTRO_NUMBER-')],
         [sg.Text('Rank: '), sg.Input(key='-RANK-')],
         [sg.Text('DoD ID: '), sg.Input(key='-DOD_ID-')],
         [sg.Button('Next'), sg.Button('Exit')]
