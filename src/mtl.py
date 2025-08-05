@@ -1,7 +1,7 @@
 import PySimpleGUI as sg
 import csv
 
-CSV_FILE = r"C:\Users\Student\Desktop\New folder\Mini-Capstone\assets\data\fortythree92.csv"  # static file
+CSV_FILE = r"assets/data/fortythree92.csv"  # static file
 
 def load_csv(file_path):
     try:
