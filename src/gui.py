@@ -20,7 +20,7 @@ def student_window(new_Student):
         [sg.Text('Last Name, First Name: '), sg.Input(key='-LASTFIRST-', size=(20, 1), default_text=new_Student.name), sg.Text('Phone #: '), sg.Input(key='-PHONE-', size=(20, 1), default_text=new_Student.phonenumber), sg.Text('Room #: '), sg.Input(key='-ROOM-', size=(20, 1), default_text='260')],
         [sg.Text('Mode of Transportation:')],
         [sg.Radio('Pov', 'TRANSPORTATION', key='-POV-'), sg.Radio('Airplane', 'TRANSPORTATION', key='-AIRPLANE-'), sg.Radio('Bus', 'TRANSPORTATION', key='-BUS-'), sg.Radio('Train', 'TRANSPORTATION', key='-TRAIN-'), sg.Radio('Other', 'TRANSPORTATION', key='-OTHER-')],
-        [sg.Text('Departure Point: '), sg.Input(key='-DEPARTURE_DATE-', size=(20, 1), default_text='Keesler AFB')],
+        [sg.Text('Departure point: '), sg.Input(key='-DEPARTURE_DATE-', size=(20, 1), default_text='Keesler AFB')],
         [sg.Text('Arrival point: '), sg.Input(key='-ARRIVAL_ONE-', size=(20, 1))],
         [sg.Text('Length of rest: '), sg.Input(key='-LOR_ONE-', size=(20, 1))],
         [sg.Text('Mileage: '), sg.Input(key='-MILEAGE_ONE-', size=(20, 1))],
