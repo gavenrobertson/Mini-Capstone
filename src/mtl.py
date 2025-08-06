@@ -2,7 +2,7 @@ import PySimpleGUI as sg
 import csv
 
 CSV_FILE = r"assets/data/fortythree92.csv"  # static file
-
+sg.theme('DarkBlue1')
 
 def load_csv(file_path):
     try:
