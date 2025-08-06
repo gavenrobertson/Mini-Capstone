@@ -60,7 +60,7 @@ layout = [
     ###[sg.Button("Exit")]
 ]
 
-window = sg.Window("MTL 4392 Viewer", layout, resizable=True, size=(900, 325))
+window = sg.Window("MTL 4392 Viewer", layout, resizable=True, size=(900, 245))
 
 while True:
     event, values = window.read()
