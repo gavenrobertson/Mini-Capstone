@@ -12,7 +12,7 @@ def intro_window():
         [sg.Text('DoD ID: '), sg.Input(key='-DOD_ID-', size=(20, 1))],
         [sg.Button('Next'), sg.Button('Exit')]
     ]
-    return sg.Window('My PySimpleGUI App', layout, size=(350, 170))
+    return sg.Window('My PySimpleGUI App', layout, size=(350, 200))
 
 def student_window(new_Student):
     """Creates the student window for user input."""
@@ -42,4 +42,4 @@ def student_window(new_Student):
         [sg.Button('Submit'), sg.Button('Exit')]
     ]
     
-    return sg.Window('4392 Request: ', layout)
+    return sg.Window('4392 Request: ', layout, size=(850, 605))
