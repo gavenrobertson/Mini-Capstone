@@ -56,6 +56,9 @@ class Mil:
         '''Sets the email.'''
         self._email = new_email
 
+    def __str__(self):
+        return (f"MIL: This is the base mil object.\n")
+
 
 class Mtl(Mil):
     '''
@@ -106,6 +109,14 @@ class Mtl(Mil):
     def email(self, new_email: str):
         '''Sets the email.'''
         self._email = new_email
+
+    def __str__(self):
+        return (f"MTL:\n"
+                f"  DOD ID: {self.dod_id}\n"
+                f"  Name: {self.name}\n"
+                f"  Rank: {self.rank}\n"
+                f"  Email: {self.email}\n"
+                f"  Room: {self.squad}")
 
 
 class Student(Mil):
@@ -165,6 +176,18 @@ class Student(Mil):
     def email(self, new_email: str):
         '''Sets the email.'''
         self._email = new_email
+
+    def __str__(self):
+        return (
+            f"Student:\n"
+            f"  DOD ID: {self.dod_id}\n"
+            f"  Name: {self.name}\n"
+            f"  Rank: {self.rank}\n"
+            f"  Email: {self.email}\n"
+            f"  Squad: {self.squad}\n"
+            f"  Phone: {self.phonenumber}\n"
+            f"  Instructor: {self.instructor}"
+        )
 
 
 class Instructor(Mil):
@@ -241,6 +264,15 @@ class Instructor(Mil):
         '''
         if stu in self.students:
             self.students.remove(stu)
+
+    def __str__(self):
+        return (f"Instructor:\n"
+                f"  DOD ID: {self.dod_id}\n"
+                f"  Name: {self.name}\n"
+                f"  Rank: {self.rank}\n"
+                f"  Email: {self.email}\n"
+                f"  Room: {self.squad}\n"
+                f"  Subjects: {self.students}")
 
 
 class FortyThree92:
@@ -340,22 +372,3 @@ class FortyThree92:
     def email(self, new_email: str):
         '''Sets the email.'''
         self._email = new_email
-
-    def get_status(self):
-        pass
-
-    def approve(self):
-        pass
-
-    def deny(self):
-        pass
-
-    def view(self):
-        pass
-
-    def cancel(self):
-        pass
-
-    def edit(self):
-        pass
- 

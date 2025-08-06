@@ -1,12 +1,21 @@
 import PySimpleGUI as sg
 import csv
+import random
 from gui import intro_window, student_window
 from app import Mtl, Student, Instructor, FortyThree92
+from faker import Faker #found this helpful for making fake data.
 
 sg.theme('DarkBlue1')
 
 def main():
     intro_view = intro_window()
+
+    #as of right now here are the mtls and instuctor assigned to the student.
+    the_instructor = Instructor(9835472, 'Mr. Lee', 'CIV', 'mrlee@stellaris.com', 336, intialize_teachers())
+    the_mtl = Mtl(1236482, 'SSgt Blakley', 'E5', 'sgtblakley@us.af.mil', 336)
+
+    print(the_instructor)
+    print(the_mtl)
 
     while True:
         event, values = intro_view.read()
@@ -22,11 +31,13 @@ def main():
             email = values['-EMAIL-']
             squad = "336"     
             phonenumber = values['-INTRO_NUMBER-']
-            instructor_assigned = 'Mr. Lee'
+            instructor_assigned = the_instructor.name
 
             # Create Student object
             new_Student = Student(dod_id, name, rank, email, squad, phonenumber, instructor_assigned)
+    
 
+            print(new_Student)
 
             # Now open student window
             intro_view.close()
@@ -136,37 +147,10 @@ def main():
                     
                     file_path = "assets/data/form_4392_full.csv"
 
+                    create_4392_objects()
                     
                     with open(file_path, "a", newline="") as file:
                         writer = csv.writer(file)
-                        writer.writerow([
-                            "Name",
-                            "Phone Number",
-                            "Room",
-                            "Transportation",
-                            "Departure Date",
-                            "Arrival One",
-                            "LOR One",
-                            "Mileage One",
-                            "Date Two",
-                            "LOR Two",
-                            "Other Name",
-                            "Address",
-                            "Other Number",
-                            "Confirmation Number",
-                            "Lodging Type",
-                            "Visitor 1 Name",
-                            "Visitor 1 Number",
-                            "Visitor 1 Relationship",
-                            "Visitor 2 Name",
-                            "Visitor 2 Number",
-                            "Visitor 2 Relationship",
-                            "Student Signature",
-                            "Grade",
-                            "Date Briefed",
-                            "Briefed By",
-                            "Status"
-                        ])
                         writer.writerow([
                             form_4392.name,
                             form_4392.phonenumber,
@@ -195,9 +179,9 @@ def main():
                             form_4392.briefed_by,
                             form_4392.status
                         ])
-
                     student_view.close()
                     break
+
             break
 
 def intialize_teachers():
@@ -209,6 +193,96 @@ def intialize_teachers():
                 list_of_students.append(line)
 
     return list_of_students
+
+def create_4392_objects():
+    fake = Faker()
+    with open("assets/data/form_4392_full.csv", "a", newline="") as file:
+        writer = csv.writer(file)
+        writer.writerow([
+            "Name",
+            "Phone Number",
+            "Room",
+            "Transportation",
+            "Departure Date",
+            "Arrival One",
+            "LOR One",
+            "Mileage One",
+            "Date Two",
+            "LOR Two",
+            "Other Name",
+            "Address",
+            "Other Number",
+            "Confirmation Number",
+            "Lodging Type",
+            "Visitor 1 Name",
+            "Visitor 1 Number",
+            "Visitor 1 Relationship",
+            "Visitor 2 Name",
+            "Visitor 2 Number",
+            "Visitor 2 Relationship",
+            "Student Signature",
+            "Grade",
+            "Date Briefed",
+            "Briefed By",
+            "Status"
+        ])
+        for _ in range(10):
+            f = FortyThree92(
+                name=fake.name(),
+                phonenumber=fake.phone_number(),
+                room=str(random.randint(100, 999)),
+                transportation=random.choice(["POV", "Bus", "Air", "Train"]),
+                departure_date=str(fake.date_between(start_date="-30d", end_date="today")),
+                arrival_one=fake.city(),
+                lor_one=str(random.randint(1, 5)),
+                mileage_one=str(random.randint(10, 1000)),
+                date_two=str(fake.date_between(start_date="today", end_date="+30d")),
+                lor_two=str(random.randint(1, 5)),
+                other_name=fake.name(),
+                address=fake.address().replace('\n', ', '),
+                other_number=fake.phone_number(),
+                confirmation_number=str(random.randint(100000, 999999)),
+                lodging_type=random.choice(["Hotel", "Residence", "Other"]),
+                visitor1_name=fake.name(),
+                visitor1_number=fake.phone_number(),
+                visitor1_relationship=random.choice(["Friend", "Family", "Spouse"]),
+                visitor2_name=fake.name(),
+                visitor2_number=fake.phone_number(),
+                visitor2_relationship=random.choice(["Friend", "Family", "Spouse"]),
+                student_signature=fake.name(),
+                grade=random.choice(["E1", "E2", "E3", "E4"]),
+                date_briefed=str(fake.date_this_month()),
+                briefed_by=fake.name()
+            )
+            
+            writer.writerow([
+                f.name,
+                f.phonenumber,
+                f.room,
+                f.transportation,
+                f.departure_date,
+                f.arrival_one,
+                f.lor_one,
+                f.mileage_one,
+                f.date_two,
+                f.lor_two,
+                f.other_name,
+                f.address,
+                f.other_number,
+                f.confirmation_number,
+                f.lodging_type,
+                f.visitor1_name,
+                f.visitor1_number,
+                f.visitor1_relationship,
+                f.visitor2_name,
+                f.visitor2_number,
+                f.visitor2_relationship,
+                f.student_signature,
+                f.grade,
+                f.date_briefed,
+                f.briefed_by,
+                f.status
+            ])
 
 if __name__ == '__main__':
     main()
