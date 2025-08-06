@@ -53,13 +53,14 @@ layout = [
         num_rows=15,
         key="-TABLE-",
         enable_events=True,  # Detect clicks
-        select_mode=sg.TABLE_SELECT_MODE_BROWSE
+        select_mode=sg.TABLE_SELECT_MODE_BROWSE,
+        vertical_scroll_only=False,
     )],
     [sg.Button("Delete Selected Row"), sg.Button("Exit")]
     ###[sg.Button("Exit")]
 ]
 
-window = sg.Window("CSV Viewer", layout, resizable=True)
+window = sg.Window("CSV Viewer", layout, resizable=True, size=(900, 245))
 
 while True:
     event, values = window.read()
