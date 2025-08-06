@@ -5,7 +5,7 @@ def intro_window():
     layout = [
         [sg.Text('Welcome, please enter the below information!')],
         [sg.Text('Name: '), sg.Input(key='-NAME-', size=(20, 10))],
-        [sg.Text('Email: '), sg.Input(key='-EMAIL-', size=(20, 1))],
+        [sg.Text('Email: '), sg.Input(key='-EMAIL-', size=(30, 1))],
         [sg.Text('Phone #: '), sg.Input(key='-INTRO_NUMBER-', size=(20, 1))],
         [sg.Text('Rank: '), sg.Input(key='-RANK-', size=(20, 1))],
         [sg.Text('DoD ID: '), sg.Input(key='-DOD_ID-', size=(20, 1))],
@@ -13,14 +13,14 @@ def intro_window():
     ]
     return sg.Window('My PySimpleGUI App', layout)
 
-def student_window():
+def student_window(new_Student):
     #User input for 4392 form, creates data for 4392 object
     layout = [
         [sg.Text('Welcome, please enter the below information!')],
-        [sg.Text('Last Name, First Name: '), sg.Input(key='-LASTFIRST-', size=(20, 1)), sg.Text('Phone #: '), sg.Input(key='-PHONE-', size=(20, 1)), sg.Text('Room #: '), sg.Input(key='-ROOM-', size=(20, 1))],
+        [sg.Text('Last Name, First Name: '), sg.Input(key='-LASTFIRST-', size=(20, 1), default_text=new_Student.name), sg.Text('Phone #: '), sg.Input(key='-PHONE-', size=(20, 1), default_text=new_Student.phonenumber), sg.Text('Room #: '), sg.Input(key='-ROOM-', size=(20, 1), default_text='260')],
         [sg.Text('Mode of Transportation:')],
         [sg.Radio('Pov', 'TRANSPORTATION', key='-POV-'), sg.Radio('Airplane', 'TRANSPORTATION', key='-AIRPLANE-'), sg.Radio('Bus', 'TRANSPORTATION', key='-BUS-'), sg.Radio('Train', 'TRANSPORTATION', key='-TRAIN-'), sg.Radio('Other', 'TRANSPORTATION', key='-OTHER-')],
-        [sg.Text('Departure Date: '), sg.Input(key='-DEPARTURE_DATE-', size=(10, 1))],
+        [sg.Text('Departure Date: '), sg.Input(key='-DEPARTURE_DATE-', size=(20, 1), default_text='Keesler AFB')],
         [sg.Text('Arrival point: '), sg.Input(key='-ARRIVAL_ONE-', size=(20, 1))],
         [sg.Text('Length of rest: '), sg.Input(key='-LOR_ONE-', size=(20, 1))],
         [sg.Text('Mileage: '), sg.Input(key='-MILEAGE_ONE-', size=(20, 1))],
@@ -71,4 +71,6 @@ def student_window():
     #     [sg.Text('Briefed by: '), sg.Input(key='-BRIEFED_BY-')],
     #     [sg.Button('Submit'), sg.Button('Exit')]
     # ]
+
+    
     return sg.Window('4392 Request: ', layout)

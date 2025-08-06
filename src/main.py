@@ -16,12 +16,12 @@ def main():
 
         elif event == 'Next':
             # Extract data from intro window
-            dod_id = "1234567890"  
+            dod_id = values['-DOD_ID-']
             name = values['-NAME-']
             rank = values['-RANK-']
             email = values['-EMAIL-']
             squad = "336"     
-            phonenumber = '12345612345'
+            phonenumber = values['-INTRO_NUMBER-']
             instructor_assigned = 'Mr. Lee'
 
             # Create Student object
@@ -30,7 +30,7 @@ def main():
 
             # Now open student window
             intro_view.close()
-            student_view = student_window()
+            student_view = student_window(new_Student)
 
             while True:
                 event, stu_values = student_view.read()
@@ -134,7 +134,7 @@ def main():
                         briefed_by=briefed_by
                     )
                     
-                    file_path = "form_4392_full.csv"
+                    file_path = "assets/data/form_4392_full.csv"
 
                     
                     with open(file_path, "a", newline="") as file:
