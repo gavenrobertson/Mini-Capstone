@@ -1,0 +1,15 @@
+As an MTL
+ I want to be able to automate the process of 4392 form from existing personnel and submit it
+ so that i can respond to a lot of Requests faster and save time
+
+As an MTL
+I want to be able to view all the submitted 4392 requests
+so that I can see how many are needing to be reviewed
+
+As an MTL
+I want to be able to delete a 4392
+so that an incorrect 4392 is not approved
+
+As a student
+I want to be able to submit a 4392 request in a simple manner 
+so that it takes less time and requires less effort
