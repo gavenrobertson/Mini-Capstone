@@ -11,7 +11,7 @@ def intro_window():
         [sg.Text('DoD ID: '), sg.Input(key='-DOD_ID-', size=(20, 1))],
         [sg.Button('Next'), sg.Button('Exit')]
     ]
-    return sg.Window('My PySimpleGUI App', layout)
+    return sg.Window('My PySimpleGUI App', layout, size=(350, 170))
 
 def student_window(new_Student):
     #User input for 4392 form, creates data for 4392 object
