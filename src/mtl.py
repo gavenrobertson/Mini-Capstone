@@ -1,7 +1,7 @@
 import PySimpleGUI as sg
 import csv
 
-CSV_FILE = r"assets/data/fortythree92.csv"  # static file
+CSV_FILE = r"assets/data/form_4392_full.csv"  # static file
 sg.theme('DarkBlue1')
 
 def load_csv(file_path):
@@ -53,13 +53,14 @@ layout = [
         num_rows=15,
         key="-TABLE-",
         enable_events=True,  # Detect clicks
-        select_mode=sg.TABLE_SELECT_MODE_BROWSE
+        select_mode=sg.TABLE_SELECT_MODE_BROWSE,
+        vertical_scroll_only=False,
     )],
     [sg.Button("Delete Selected Row"), sg.Button("Exit")]
     ###[sg.Button("Exit")]
 ]
 
-window = sg.Window("CSV Viewer", layout, resizable=True)
+window = sg.Window("CSV Viewer", layout, resizable=True, size=(900, 245))
 
 while True:
     event, values = window.read()
