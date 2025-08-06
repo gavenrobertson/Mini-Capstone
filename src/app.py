@@ -9,7 +9,7 @@ class Mil:
         rank (str): Military rank.
         squad (str): Assigned squad.
     '''
-    def __init__(self, dod_id: str, name: str, rank: str, email: str, squad: str):
+    def __init__(self, dod_id: str, name: str, rank: str, email: str, squad: str) -> None:
         '''
         Initializes a Mil object.
 
@@ -32,7 +32,7 @@ class Mil:
         return self._dod_id
 
     @dod_id.setter
-    def dod_id(self, new_id: str):
+    def dod_id(self, new_id: str) -> None:
         '''Sets the DoD ID.'''
         self._dod_id = new_id
 
@@ -42,7 +42,7 @@ class Mil:
         return self._name
 
     @name.setter
-    def name(self, new_name: str):
+    def name(self, new_name: str) -> None:
         '''Sets the name.'''
         self._name = new_name
 
@@ -52,7 +52,7 @@ class Mil:
         return self._email
 
     @email.setter
-    def email(self, new_email: str):
+    def email(self, new_email: str) -> None:
         '''Sets the email.'''
         self._email = new_email
 
@@ -67,7 +67,7 @@ class Mtl(Mil):
     Inherits from:
         Mil
     '''
-    def __init__(self, dod_id: str, name: str, rank: str, email: str, squad: str):
+    def __init__(self, dod_id: str, name: str, rank: str, email: str, squad: str) -> None:
         '''
         Initializes an MTL object.
 
@@ -86,7 +86,7 @@ class Mtl(Mil):
         return self._dod_id
 
     @dod_id.setter
-    def dod_id(self, new_id: str):
+    def dod_id(self, new_id: str) -> None:
         '''Sets the DoD ID.'''
         self._dod_id = new_id
 
@@ -96,7 +96,7 @@ class Mtl(Mil):
         return self._name
 
     @name.setter
-    def name(self, new_name: str):
+    def name(self, new_name: str) -> None:
         '''Sets the name.'''
         self._name = new_name
 
@@ -106,7 +106,7 @@ class Mtl(Mil):
         return self._email
 
     @email.setter
-    def email(self, new_email: str):
+    def email(self, new_email: str) -> None:
         '''Sets the email.'''
         self._email = new_email
 
@@ -130,7 +130,7 @@ class Student(Mil):
         phonenumber (str): Contact phone number.
         instructor (Instructor): Assigned instructor object.
     '''
-    def __init__(self, dod_id: str, name: str, rank: str, email: str, squad: str, phonenumber: str, instructor):
+    def __init__(self, dod_id: str, name: str, rank: str, email: str, squad: str, phonenumber: str, instructor) -> None:
         '''
         Initializes a Student object.
 
@@ -153,7 +153,7 @@ class Student(Mil):
         return self._dod_id
 
     @dod_id.setter
-    def dod_id(self, new_id: str):
+    def dod_id(self, new_id: str) -> None:
         '''Sets the DoD ID.'''
         self._dod_id = new_id
 
@@ -163,7 +163,7 @@ class Student(Mil):
         return self._name
 
     @name.setter
-    def name(self, new_name: str):
+    def name(self, new_name: str) -> None:
         '''Sets the name.'''
         self._name = new_name
 
@@ -173,7 +173,7 @@ class Student(Mil):
         return self._email
 
     @email.setter
-    def email(self, new_email: str):
+    def email(self, new_email: str) -> None:
         '''Sets the email.'''
         self._email = new_email
 
@@ -200,7 +200,7 @@ class Instructor(Mil):
     Attributes:
         students (list): List of assigned Student objects.
     '''
-    def __init__(self, dod_id: str, name: str, rank: str, email: str, squad: str, students=None):
+    def __init__(self, dod_id: str, name: str, rank: str, email: str, squad: str, students=None) -> None:
         '''
         Initializes an Instructor object.
 
@@ -221,7 +221,7 @@ class Instructor(Mil):
         return self._dod_id
 
     @dod_id.setter
-    def dod_id(self, new_id: str):
+    def dod_id(self, new_id: str) -> None:
         '''Sets the DoD ID.'''
         self._dod_id = new_id
 
@@ -231,7 +231,7 @@ class Instructor(Mil):
         return self._name
 
     @name.setter
-    def name(self, new_name: str):
+    def name(self, new_name: str) -> None:
         '''Sets the name.'''
         self._name = new_name
 
@@ -241,11 +241,11 @@ class Instructor(Mil):
         return self._email
 
     @email.setter
-    def email(self, new_email: str):
+    def email(self, new_email: str) -> None:
         '''Sets the email.'''
         self._email = new_email
 
-    def add_stu(self, stu):
+    def add_stu(self, stu) -> None:
         '''
         Adds a student to the instructor’s list if not already present.
 
@@ -255,7 +255,7 @@ class Instructor(Mil):
         if stu not in self.students:
             self.students.append(stu)
 
-    def remove_stu(self, stu):
+    def remove_stu(self, stu) -> None:
         '''
         Removes a student from the instructor’s list if present.
 
@@ -265,7 +265,7 @@ class Instructor(Mil):
         if stu in self.students:
             self.students.remove(stu)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return (f"Instructor:\n"
                 f"  DOD ID: {self.dod_id}\n"
                 f"  Name: {self.name}\n"
@@ -315,7 +315,7 @@ class FortyThree92:
         visitor1_name, visitor1_number, visitor1_relationship,
         visitor2_name, visitor2_number, visitor2_relationship,
         student_signature, grade, date_briefed, briefed_by
-    ):
+    ) -> None:
         self.name = name
         self.phonenumber = phonenumber
         self.room = room
@@ -349,7 +349,7 @@ class FortyThree92:
         return self._dod_id
 
     @dod_id.setter
-    def dod_id(self, new_id: str):
+    def dod_id(self, new_id: str) -> None:
         '''Sets the DoD ID.'''
         self._dod_id = new_id
 
@@ -359,7 +359,7 @@ class FortyThree92:
         return self._name
 
     @name.setter
-    def name(self, new_name: str):
+    def name(self, new_name: str) -> None:
         '''Sets the name.'''
         self._name = new_name
 
@@ -369,6 +369,6 @@ class FortyThree92:
         return self._email
 
     @email.setter
-    def email(self, new_email: str):
+    def email(self, new_email: str) -> None:
         '''Sets the email.'''
         self._email = new_email

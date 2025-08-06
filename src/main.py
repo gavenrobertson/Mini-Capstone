@@ -5,12 +5,18 @@ from gui import intro_window, student_window
 from app import Mtl, Student, Instructor, FortyThree92
 from faker import Faker #found this helpful for making fake data.
 
+#Theme
 sg.theme('DarkBlue1')
 
 def main():
+    """
+    Main function to run student side of application.
+    """
+
+    #Launch the intro window
     intro_view = intro_window()
 
-    #as of right now here are the mtls and instuctor assigned to the student.
+    #Initialize the instructor and MTL objects
     the_instructor = Instructor(9835472, 'Mr. Lee', 'CIV', 'mrlee@stellaris.com', 336, intialize_teachers())
     the_mtl = Mtl(1236482, 'SSgt Blakley', 'E5', 'sgtblakley@us.af.mil', 336)
 
@@ -43,12 +49,13 @@ def main():
             intro_view.close()
             student_view = student_window(new_Student)
 
+            #Main loop for student window
             while True:
                 event, stu_values = student_view.read()
                 if event in (sg.WINDOW_CLOSED, 'Exit'):
                     student_view.close()
                     break
-
+                #taking in from the user and then setting values to the variables
                 elif event == 'Submit':
                     name = stu_values['-LASTFIRST-']
                     phonenumber = stu_values['-PHONE-']
@@ -149,6 +156,7 @@ def main():
 
                     create_4392_objects()
                     
+                    # Save the form data to CSV
                     with open(file_path, "a", newline="") as file:
                         writer = csv.writer(file)
                         writer.writerow([
@@ -184,7 +192,11 @@ def main():
 
             break
 
+#this assings the students in the csv to the teachers
 def intialize_teachers():
+    """
+    Reads the teacher's CSV file and returns a list of students assigned to each teacher.
+    """
     list_of_students = []
     with open('assets/data/teacher.csv', 'r', newline='') as teachers_students:
         csv_output = csv.reader(teachers_students)
@@ -194,7 +206,11 @@ def intialize_teachers():
 
     return list_of_students
 
+# Function to create 4392 objects and save to CSV
 def create_4392_objects():
+    """
+    Appends 10 random FortyThree92 objects to the CSV file and writes header row if file is empty.
+    """
     fake = Faker()
     with open("assets/data/form_4392_full.csv", "a", newline="") as file:
         writer = csv.writer(file)

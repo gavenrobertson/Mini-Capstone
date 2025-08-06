@@ -1,6 +1,7 @@
 import PySimpleGUI as sg
 
 def intro_window():
+    """Creates the introductory window for user input."""
     #User input for intro window, creates data for Student object
     layout = [
         [sg.Text('Welcome, please enter the below information!')],
@@ -14,6 +15,7 @@ def intro_window():
     return sg.Window('My PySimpleGUI App', layout, size=(350, 170))
 
 def student_window(new_Student):
+    """Creates the student window for user input."""
     #User input for 4392 form, creates data for 4392 object
     layout = [
         [sg.Text('Welcome, please enter the below information!')],

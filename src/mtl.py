@@ -4,7 +4,9 @@ import csv
 CSV_FILE = r"assets/data/form_4392_full.csv"  # static file
 sg.theme('DarkBlue1')
 
+#load_csv function to read CSV file
 def load_csv(file_path):
+    """Load CSV file and return headings and rows."""
     try:
         with open(file_path, newline="", encoding="utf-8") as csvfile:
             reader = csv.reader(csvfile)
@@ -17,6 +19,7 @@ def load_csv(file_path):
         sg.popup_error(f"Error reading CSV file:\n{e}")
     return [], []
 
+# save_csv function to write updated data back to CSV file
 def save_csv(file_path, headings, rows):
     """Save updated CSV back to file."""
     try:
@@ -27,6 +30,7 @@ def save_csv(file_path, headings, rows):
     except Exception as e:
         sg.popup_error(f"Error saving CSV file:\n{e}")
 
+# show_row_details function to display details of the selected row
 def show_row_details(row, headings):
     """Opens a new window showing details of the selected row."""
     layout = [
