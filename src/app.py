@@ -272,7 +272,7 @@ class Instructor(Mil):
                 f"  Rank: {self.rank}\n"
                 f"  Email: {self.email}\n"
                 f"  Room: {self.squad}\n"
-                f"  Subjects: {self.students}")
+                f"  Students: {self.students}")
 
 
 class FortyThree92:
