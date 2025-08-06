@@ -1,0 +1,13 @@
+-- Submitting a 4392 --
+Run from main.py
+Then fill in your student information
+Once done press next
+Then fill in your information for submitting your 4392
+Once done press submit
+
+-- Viewing the 4392's in MTL Viewer -- 
+Run from mtl.py
+It will display the list of active 4392's that have been submitted
+Click on a 4392 and a new display window will show up giving the details relating to that 4392
+Press close once finished viewing the details window
+To delete, highlight the 4392 and then press delete selected row
