@@ -208,7 +208,7 @@ def intialize_teachers():
 # Function to create 4392 objects and save to CSV
 def create_4392_objects():
     """
-    Appends 10 random FortyThree92 objects to the CSV file and writes header row if file is empty.
+    Appends FortyThree92 objects to the CSV file and writes header row if file is empty.
     """
     import csv
     import random
