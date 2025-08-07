@@ -3,7 +3,6 @@ import csv
 import random
 from gui import intro_window, student_window
 from app import Mtl, Student, Instructor, FortyThree92
-from faker import Faker #found this helpful for making fake data.
 
 #Theme
 sg.theme('DarkBlue1')
@@ -211,94 +210,24 @@ def create_4392_objects():
     """
     Appends 10 random FortyThree92 objects to the CSV file and writes header row if file is empty.
     """
-    fake = Faker()
-    with open("assets/data/form_4392_full.csv", "a", newline="") as file:
-        writer = csv.writer(file)
-        writer.writerow([
-            "Name",
-            "Phone Number",
-            "Room",
-            "Transportation",
-            "Departure Date",
-            "Arrival One",
-            "LOR One",
-            "Mileage One",
-            "Date Two",
-            "LOR Two",
-            "Other Name",
-            "Address",
-            "Other Number",
-            "Confirmation Number",
-            "Lodging Type",
-            "Visitor 1 Name",
-            "Visitor 1 Number",
-            "Visitor 1 Relationship",
-            "Visitor 2 Name",
-            "Visitor 2 Number",
-            "Visitor 2 Relationship",
-            "Student Signature",
-            "Grade",
-            "Date Briefed",
-            "Briefed By",
-            "Status"
-        ])
-        for _ in range(10):
-            f = FortyThree92(
-                name=fake.name(),
-                phonenumber=fake.phone_number(),
-                room=str(random.randint(100, 999)),
-                transportation=random.choice(["POV", "Bus", "Air", "Train"]),
-                departure_date=str(fake.date_between(start_date="-30d", end_date="today")),
-                arrival_one=fake.city(),
-                lor_one=str(random.randint(1, 5)),
-                mileage_one=str(random.randint(10, 1000)),
-                date_two=str(fake.date_between(start_date="today", end_date="+30d")),
-                lor_two=str(random.randint(1, 5)),
-                other_name=fake.name(),
-                address=fake.address().replace('\n', ', '),
-                other_number=fake.phone_number(),
-                confirmation_number=str(random.randint(100000, 999999)),
-                lodging_type=random.choice(["Hotel", "Residence", "Other"]),
-                visitor1_name=fake.name(),
-                visitor1_number=fake.phone_number(),
-                visitor1_relationship=random.choice(["Friend", "Family", "Spouse"]),
-                visitor2_name=fake.name(),
-                visitor2_number=fake.phone_number(),
-                visitor2_relationship=random.choice(["Friend", "Family", "Spouse"]),
-                student_signature=fake.name(),
-                grade=random.choice(["E1", "E2", "E3", "E4"]),
-                date_briefed=str(fake.date_this_month()),
-                briefed_by=fake.name()
-            )
-            
-            writer.writerow([
-                f.name,
-                f.phonenumber,
-                f.room,
-                f.transportation,
-                f.departure_date,
-                f.arrival_one,
-                f.lor_one,
-                f.mileage_one,
-                f.date_two,
-                f.lor_two,
-                f.other_name,
-                f.address,
-                f.other_number,
-                f.confirmation_number,
-                f.lodging_type,
-                f.visitor1_name,
-                f.visitor1_number,
-                f.visitor1_relationship,
-                f.visitor2_name,
-                f.visitor2_number,
-                f.visitor2_relationship,
-                f.student_signature,
-                f.grade,
-                f.date_briefed,
-                f.briefed_by,
-                f.status
-            ])
+    import csv
+    import random
+
+    with open("assets/data/fake_data.csv", "r", newline="") as source_file, \
+        open("assets/data/form_4392_full.csv", "w", newline="") as target_file:
+
+        reader = csv.DictReader(source_file)
+        fieldnames = reader.fieldnames
+
+        if 'Status' not in fieldnames:
+            fieldnames.append('Status')
+
+        writer = csv.DictWriter(target_file, fieldnames=fieldnames)
+        writer.writeheader()
+
+        for row in reader:
+            row['Status'] = random.choice(["Pending", "Approved"])
+            writer.writerow(row)
 
 if __name__ == '__main__':
     main()
