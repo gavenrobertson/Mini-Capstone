@@ -5,14 +5,14 @@ def intro_window():
     #User input for intro window, creates data for Student object
     layout = [
         [sg.Text('Welcome, please enter the below information!')],
-        [sg.Text('Name: '), sg.Input(key='-NAME-', size=(20, 10))],
-        [sg.Text('Email: '), sg.Input(key='-EMAIL-', size=(30, 1))],
-        [sg.Text('Phone #: '), sg.Input(key='-INTRO_NUMBER-', size=(20, 1))],
-        [sg.Text('Rank: '), sg.Input(key='-RANK-', size=(20, 1))],
-        [sg.Text('DoD ID: '), sg.Input(key='-DOD_ID-', size=(20, 1))],
-        [sg.Button('Next'), sg.Button('Exit')]
+        [sg.Text('Name: '), sg.Input(key='-NAME-', expand_x=True)],
+        [sg.Text('Email: '), sg.Input(key='-EMAIL-', expand_x=True)],
+        [sg.Text('Phone #: '), sg.Input(key='-INTRO_NUMBER-', expand_x=True)],
+        [sg.Text('Rank: '), sg.Input(key='-RANK-', expand_x=True)],
+        [sg.Text('DoD ID: '), sg.Input(key='-DOD_ID-', expand_x=True)],
+        [sg.Button('Next', expand_x=True), sg.Button('Exit', expand_x=True)],
     ]
-    return sg.Window('My PySimpleGUI App', layout, size=(350, 200))
+    return sg.Window('My PySimpleGUI App', layout, resizable=True)
 
 def student_window(new_Student):
     """Creates the student window for user input."""
@@ -42,4 +42,4 @@ def student_window(new_Student):
         [sg.Button('Submit'), sg.Button('Exit')]
     ]
     
-    return sg.Window('4392 Request: ', layout, size=(850, 605))
+    return sg.Window('4392 Request: ', layout, size=(850, 605), resizable=True)
